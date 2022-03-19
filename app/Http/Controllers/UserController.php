@@ -50,7 +50,7 @@ class UserController extends Controller
 
             $messages .= "</ul>";
 
-            $request->session()->flash(
+            session()->flash(
                 'message',
                 "Data gagal disimpan
                 $messages",
@@ -59,7 +59,7 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        $request->session()->flash(
+        session()->flash(
             'message',
             'Data berhasil disimpan',
         );
@@ -104,7 +104,7 @@ class UserController extends Controller
 
         $messages .= "</ul>";
 
-        $request->session()->flash(
+        session()->flash(
             'message',
             "Data gagal disimpan
             $messages",
@@ -113,7 +113,7 @@ class UserController extends Controller
         return redirect('users');
         }
 
-        $request->session()->flash(
+        session()->flash(
             'message',
             'Data berhasil disimpan',
         );
@@ -125,7 +125,7 @@ class UserController extends Controller
         $response = (new BaseApi)->delete('/user', $id);
 
         if ($response->failed()) {
-            $request->session()->flash(
+            session()->flash(
                 'message',
                 'Data gagal dihapus'
             );
@@ -133,7 +133,7 @@ class UserController extends Controller
             return redirect('users');
         }
 
-        $request->session()->flash(
+        session()->flash(
             'message',
             'Data berhasil dihapus',
         );
